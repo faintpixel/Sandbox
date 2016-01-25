@@ -203,6 +203,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -226,6 +227,7 @@
     <Content Include="Scripts\UnitTests\SpecRunner.html" />
     <Content Include="Scripts\wsp\Application.js" />
     <Content Include="Scripts\wsp\Constants.js" />
+    <Content Include="Scripts\wsp\Controllers\AboutController.js" />
     <Content Include="Scripts\wsp\Controllers\FormController.js" />
     <Content Include="Scripts\wsp\Services\EmployeeService.js" />
     <Content Include="Scripts\wsp\Tests\EmployeeServiceSpec.js" />
@@ -244,6 +246,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\Home\_About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

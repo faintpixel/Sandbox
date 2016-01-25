@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/bootstrap-theme.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/animate.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular-animate.min.js"></script>
@@ -26,6 +27,7 @@
     @Scripts.Render("~/scripts/wsp/Constants.js")
     @Scripts.Render("~/scripts/wsp/Services/EmployeeService.js")
     @Scripts.Render("~/scripts/wsp/Controllers/FormController.js")
+    @Scripts.Render("~/scripts/wsp/Controllers/AboutController.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

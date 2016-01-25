@@ -45,7 +45,7 @@
 
         function OpenAboutPopup() {
             var popupInstance = $uibModal.open({
-                templateUrl: "aboutPopup.html"
+                templateUrl: 'aboutPopup.html'
             });
         }
 

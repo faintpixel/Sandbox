@@ -1,14 +1,6 @@
-﻿
-
-<div ng-app="myApp">
-    <script type="text/ng-template" id="aboutPopup.html">
-        <div class="modal-header">
-            <h3 class="modal-title">About</h3>
-        </div>
-        <div class="modal-body">
-            <a href="http://localhost:46464/Scripts/UnitTests/SpecRunner.html">View unit tests for this project.</a>
-        </div>
-    </script>
+﻿<div ng-app="myApp">
+    
+    @Html.Partial("~/Views/Home/_About.cshtml")
 
     <div class="container" ng-controller="FormController as Form" ng-init='Form.Initialize(@Html.Raw(Json.Encode(ViewBag.Messages)), "@ViewBag.EmployeeName", @Html.Raw(Json.Encode(ViewBag.OfficeList)))'>
         
@@ -23,7 +15,7 @@
             <div class="row">
                 <div class="col-md-1">Number:</div>
                 <div class="col-md-3"><input name="number" type="text" ng-required="true" ng-model="Form.employee.number" class="form-control" /></div>
-                <div class="col-md-8"><span ng-show="employeeForm.number.$error.required">Required.</span></div>
+                <div class="col-md-8"><span ng-show="employeeForm.number.$error.required" class="validationError">Required.</span></div>
             </div>
             <div class="row">
                 <div class="col-md-1">Start Date:</div>
@@ -41,17 +33,17 @@
                     </p>
                 </div>
             </div>
-            <div class="checkbox">
+            <div class="checkbox row">
                 <div class="col-md-4"><input type="checkbox" ng-model="Form.employee.worksInOffice" /> Works in office:</div>
             </div>
-            <div class="row">
+            <div class="row officeDetail" ng-show="Form.employee.worksInOffice">
                 <div class="col-md-1">Office:</div>
                 <div class="col-md-3"><select ng-disabled="!Form.employee.worksInOffice" ng-model="Form.employee.office" ng-options="officeChoice.Key as officeChoice.Value for officeChoice in Form.officeChoices" class="form-control"></select></div>
             </div>
             <div class="row">
                 <div class="col-md-1">Comment</div>
                 <div class="col-md-3"><input name="comment" type="text" ng-model="Form.employee.comment" ng-required="Form.IsCommentRequired()" class="form-control" /></div>
-                <div class="col-md-8"><span ng-show="employeeForm.comment.$error.required">Required</span></div>
+                <div class="col-md-8"><span ng-show="employeeForm.comment.$error.required" class="validationError">Required</span></div>
             </div>
 
             <button type="button" ng-click="Form.SubmitForm()" ng-disabled="!employeeForm.$valid" class="btn btn-default btn-lg">
@@ -63,7 +55,7 @@
                 <b>Employee: </b> {{Form.employee.employee}}<br />
                 <b>Number: </b> {{Form.employee.number}}<br />
                 <b>Works in office: </b> {{Form.employee.worksInOffice}}<br />
-                <div ng-show="Form.employee.worksInOffice"><b>Office: </b> {{Form.employee.office}}</div>
+                <div ng-show="Form.employee.worksInOffice" class="officeDetail"><b>Office: </b> {{Form.employee.office}}</div>
                 <b>Comment: </b> {{Form.employee.comment}}<br />
                 <div>
                     {{Form.employee}}

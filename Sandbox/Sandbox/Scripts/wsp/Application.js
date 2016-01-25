@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('myApp', ['ui.bootstrap']);
+    angular.module('myApp', ['ngAnimate', 'ui.bootstrap']);
 })();
 
 
