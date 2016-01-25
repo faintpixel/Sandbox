@@ -230,6 +230,7 @@
     <Content Include="Scripts\wsp\Services\EmployeeService.js" />
     <Content Include="Scripts\wsp\Tests\EmployeeServiceSpec.js" />
     <Content Include="Scripts\wsp\Tests\FormControllerSpec.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

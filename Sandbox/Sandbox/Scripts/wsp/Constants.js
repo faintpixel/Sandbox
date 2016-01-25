@@ -1,3 +1,3 @@
 ﻿var URL_LIST = {
-    SubmitEmployee: ""
+    SubmitEmployee: ''
 };

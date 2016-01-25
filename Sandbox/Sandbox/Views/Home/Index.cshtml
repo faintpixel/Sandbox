@@ -1,6 +1,19 @@
-﻿<div ng-app="myApp">
+﻿
+
+<div ng-app="myApp">
+    <script type="text/ng-template" id="aboutPopup.html">
+        <div class="modal-header">
+            <h3 class="modal-title">About</h3>
+        </div>
+        <div class="modal-body">
+            <a href="http://localhost:46464/Scripts/UnitTests/SpecRunner.html">View unit tests for this project.</a>
+        </div>
+    </script>
 
     <div class="container" ng-controller="FormController as Form" ng-init='Form.Initialize(@Html.Raw(Json.Encode(ViewBag.Messages)), "@ViewBag.EmployeeName", @Html.Raw(Json.Encode(ViewBag.OfficeList)))'>
+        
+        <button type="button" class="btn btn-default" ng-click="Form.OpenAboutPopup()">Open popup</button>        
+
         <form name="employeeForm" novalidate>
             <h1>Test form for user {{Form.employee.employee}}</h1>
             <div class="row">
@@ -11,6 +24,22 @@
                 <div class="col-md-1">Number:</div>
                 <div class="col-md-3"><input name="number" type="text" ng-required="true" ng-model="Form.employee.number" class="form-control" /></div>
                 <div class="col-md-8"><span ng-show="employeeForm.number.$error.required">Required.</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">Start Date:</div>
+                <div class="col-md-3">
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{Form.dateFormat}}"
+                               name="dt" ng-model="Form.employee.startDate" is-open="Form.startDateOpen"
+                               datepicker-options="Form.dateOptions" ng-required="true"
+                               close-text="Close" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" ng-click="Form.OpenStartDatePicker($event)">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                </div>
             </div>
             <div class="checkbox">
                 <div class="col-md-4"><input type="checkbox" ng-model="Form.employee.worksInOffice" /> Works in office:</div>

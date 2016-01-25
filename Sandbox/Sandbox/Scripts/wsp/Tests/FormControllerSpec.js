@@ -16,9 +16,9 @@
         describe('Scope value defaults', function () {
             it('has a test value', function () {
                 var EmployeeService = {};
-                var controller = $controller("FormController", { EmployeeService: EmployeeService });
+                var controller = $controller('FormController', { EmployeeService: EmployeeService });
 
-                expect(controller.test).toEqual("123");
+                expect(controller.test).toEqual('123');
             });
         });
 
@@ -31,10 +31,12 @@
                     deferred.resolve("result");
                     return deferred.promise;
                 };
-                var controller = $controller("FormController", { EmployeeService: EmployeeService });
+                var controller = $controller('FormController', { EmployeeService: EmployeeService });
+
                 controller.SubmitForm();
                 $rootScope.$digest();
-                expect(controller.message).toEqual("result");
+
+                expect(controller.message).toEqual('result');
             });
         });
     });

@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module("myApp").factory('EmployeeService', EmployeeService);
+    angular.module('myApp').factory('EmployeeService', EmployeeService);
 
     function EmployeeService($http) {
         var factory = {
