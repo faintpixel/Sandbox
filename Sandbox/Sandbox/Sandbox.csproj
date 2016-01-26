@@ -239,6 +239,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\ui-grid.ttf" />
     <Content Include="Content\ui-grid.woff" />
+    <None Include="Properties\PublishProfiles\mkAngularTest.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
