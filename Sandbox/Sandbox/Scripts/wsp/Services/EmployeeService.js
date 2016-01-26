@@ -5,6 +5,7 @@
 
     function EmployeeService($http) {
         var factory = {
+            GetEmployees: GetEmployees,
             SubmitEmployee: SubmitEmployee
         };
 
@@ -17,6 +18,15 @@
                 url: URL_LIST.SubmitEmployee,
                 data: submissionData,
                 headers: { 'Content-Type': 'application/json' }
+            }).then(function (result) {
+                return result;
+            });
+        }
+
+        function GetEmployees() {
+            return $http({
+                method: 'GET',
+                url: URL_LIST.GetAllEmployees
             }).then(function (result) {
                 return result;
             });

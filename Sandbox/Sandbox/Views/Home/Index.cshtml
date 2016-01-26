@@ -71,6 +71,8 @@
         </form>
     </div>
 
+    @Html.Partial("~/Views/Home/_EmployeeOverview.cshtml")
+
 </div>
 
 <script>
@@ -80,6 +82,7 @@
         window.addEventListener("load", InitializeApplication, false);
 
         function InitializeApplication(e) {
+            URL_LIST.GetAllEmployees = '@Url.Action("GetAllEmployees", "Home")';
             URL_LIST.SubmitEmployee = '@Url.Action("SubmitEmployee", "Home")';
         }
 

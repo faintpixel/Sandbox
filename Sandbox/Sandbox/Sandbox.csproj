@@ -207,6 +207,8 @@
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ui-grid.min.css" />
+    <Content Include="Content\ui-grid.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -218,6 +220,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\ui-bootstrap-tpls-1.1.0.min.js" />
+    <Content Include="Scripts\ui-grid.min.js" />
     <Content Include="Scripts\UnitTests\lib\jasmine-2.4.1\boot.js" />
     <Content Include="Scripts\UnitTests\lib\jasmine-2.4.1\console.js" />
     <Content Include="Scripts\UnitTests\lib\jasmine-2.4.1\jasmine-html.js" />
@@ -228,11 +231,14 @@
     <Content Include="Scripts\wsp\Application.js" />
     <Content Include="Scripts\wsp\Constants.js" />
     <Content Include="Scripts\wsp\Controllers\AboutController.js" />
+    <Content Include="Scripts\wsp\Controllers\EmployeeOverviewController.js" />
     <Content Include="Scripts\wsp\Controllers\FormController.js" />
     <Content Include="Scripts\wsp\Services\EmployeeService.js" />
     <Content Include="Scripts\wsp\Tests\EmployeeServiceSpec.js" />
     <Content Include="Scripts\wsp\Tests\FormControllerSpec.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\ui-grid.ttf" />
+    <Content Include="Content\ui-grid.woff" />
     <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -247,6 +253,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\Home\_About.cshtml" />
+    <Content Include="Views\Home\_EmployeeOverview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

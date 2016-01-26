@@ -35,5 +35,17 @@ namespace Sandbox.Controllers
                 throw new Exception("breaking");
             return Json(employee, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult GetAllEmployees()
+        {
+            List<EmployeeModel> employees = new List<EmployeeModel>();
+            employees.Add(new EmployeeModel { employee = "Someone Important", number = 123, office = "", worksInOffice = false, comment = "asdfsadf" });
+            employees.Add(new EmployeeModel { employee = "Test Person", number = 145, office = "", worksInOffice = false, comment = "fghdhgjf" });
+            employees.Add(new EmployeeModel { employee = "Someone Else", number = 1, office = "Calgary", worksInOffice = true, comment = "asdfsadf" });
+            employees.Add(new EmployeeModel { employee = "Someone Important", number = 2, office = "", worksInOffice = false, comment = "dsg" });
+            employees.Add(new EmployeeModel { employee = "Someone Important2", number = 3, office = "Edmonton", worksInOffice = true, comment = "sdg" });
+
+            return Json(employees, JsonRequestBehavior.AllowGet);
+        }
     }
 }
