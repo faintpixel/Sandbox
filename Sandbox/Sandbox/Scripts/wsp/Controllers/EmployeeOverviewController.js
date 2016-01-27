@@ -3,15 +3,18 @@
 
     angular.module('myApp').controller('EmployeeOverviewController', EmployeeOverviewController);
 
-    function EmployeeOverviewController(EmployeeService) {
+    function EmployeeOverviewController($scope, EmployeeService) {
         var vm = this;
-
 
         vm.gridOptions = {
             enableSorting: true,
             enableFiltering: true,
-            
+            enableRowSelection: true,
+            multiSelect: false,
+            enableRowHeaderSelection: false
         };
+
+        $scope.$on('EmployeeAdded', HandleEmployeeAddedEvent);
 
         Activate();
 
@@ -26,6 +29,11 @@
                 alert("Error getting employee list");
             }
         }
+
+        function HandleEmployeeAddedEvent(e, employee) {
+            console.log('added employee: ' + employee);
+            vm.gridOptions.data.push(employee);
+        }        
     }
 
 })();

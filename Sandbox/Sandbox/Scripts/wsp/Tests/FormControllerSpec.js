@@ -25,18 +25,25 @@
         describe('SubmitForm', function () {
             it('sets message', function () {
                 var EmployeeService = {};
+                var broadcasted = false;
 
                 EmployeeService.SubmitEmployee = function (e) {
                     var deferred = q.defer();
                     deferred.resolve("result");
                     return deferred.promise;
                 };
+
+                EmployeeService.BroadcastNewEmployee = function (e) {
+                    broadcasted = true;
+                };
+
                 var controller = $controller('FormController', { EmployeeService: EmployeeService });
 
                 controller.SubmitForm();
                 $rootScope.$digest();
 
                 expect(controller.message).toEqual('result');
+                expect(broadcasted).toBe(true);
             });
         });
     });

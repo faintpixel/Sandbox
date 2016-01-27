@@ -62,6 +62,7 @@
                 console.log('Done.');
                 console.log(result);
                 vm.message = result;
+                EmployeeService.BroadcastNewEmployee(result.data);
             }
 
             function SubmitError(result) {

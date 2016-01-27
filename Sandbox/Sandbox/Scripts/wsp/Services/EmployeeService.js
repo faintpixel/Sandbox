@@ -3,15 +3,20 @@
 
     angular.module('myApp').factory('EmployeeService', EmployeeService);
 
-    function EmployeeService($http) {
+    function EmployeeService($http, $rootScope) {
         var factory = {
+            BroadcastNewEmployee: BroadcastNewEmployee,
             GetEmployees: GetEmployees,
-            SubmitEmployee: SubmitEmployee
+            SubmitEmployee: SubmitEmployee,
         };
+
+        function BroadcastNewEmployee(employee) {
+            $rootScope.$broadcast('EmployeeAdded', employee);
+        }
 
         function SubmitEmployee(employee) {
             var submissionData = {};
-            submissionData.employee = employee;
+            submissionData.employee = employee;            
 
             return $http({
                 method: 'POST',
@@ -30,7 +35,7 @@
             }).then(function (result) {
                 return result;
             });
-        }
+        }        
 
         return factory;
     }

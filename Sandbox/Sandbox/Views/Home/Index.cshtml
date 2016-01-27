@@ -3,9 +3,9 @@
     @Html.Partial("~/Views/Home/_About.cshtml")
 
     <div class="container" ng-controller="FormController as Form" ng-init='Form.Initialize(@Html.Raw(Json.Encode(ViewBag.Messages)), "@ViewBag.EmployeeName", @Html.Raw(Json.Encode(ViewBag.OfficeList)))'>
-        
-        <button type="button" class="btn btn-default" ng-click="Form.OpenAboutPopup()">Open popup</button>        
-
+        <div>
+            <button type="button" class="btn btn-default" ng-click="Form.OpenAboutPopup()">Open popup</button>
+        </div>
         <form name="employeeForm" novalidate>
             <h1>Test form for user {{Form.employee.employee}}</h1>
             <div class="row">
