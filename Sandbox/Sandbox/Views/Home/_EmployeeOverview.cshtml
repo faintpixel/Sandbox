@@ -1,5 +1,5 @@
 ﻿<div ng-controller="EmployeeOverviewController as Overview">
-    <h1>Employee Overview</h1>
+    <h1>Employee Overview - {{Overview.selectedDetail}}</h1>
 
     <div ui-grid="Overview.gridOptions" ui-grid-selection id="EmployeeTable"></div>
 </div>

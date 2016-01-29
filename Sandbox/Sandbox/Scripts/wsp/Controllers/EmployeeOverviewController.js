@@ -3,15 +3,25 @@
 
     angular.module('myApp').controller('EmployeeOverviewController', EmployeeOverviewController);
 
-    function EmployeeOverviewController($scope, EmployeeService) {
+    function EmployeeOverviewController($scope, EmployeeService, uiGridConstants) {
         var vm = this;
+
+        vm.gridApi = null;
+        vm.selectedDetail = "";
 
         vm.gridOptions = {
             enableSorting: true,
             enableFiltering: true,
             enableRowSelection: true,
             multiSelect: false,
-            enableRowHeaderSelection: false
+            enableRowHeaderSelection: false,
+            showColumnFooter: true,
+            onRegisterApi: OnRegisterApi,
+            columnDefs: [
+                { field: 'number', aggregationType: uiGridConstants.aggregationTypes.sum },
+                { field: 'employee' },
+                { field: 'office', displayName: 'Location' }
+            ]
         };
 
         $scope.$on('EmployeeAdded', HandleEmployeeAddedEvent);
@@ -33,7 +43,15 @@
         function HandleEmployeeAddedEvent(e, employee) {
             console.log('added employee: ' + employee);
             vm.gridOptions.data.push(employee);
-        }        
+        }
+
+        function OnRegisterApi(gridApi) {
+            vm.gridApi = gridApi;
+            gridApi.selection.on.rowSelectionChanged($scope, function (row) {
+                vm.selectedDetail = row.entity.number + ", " + row.entity.comment;
+                console.log(row);
+            });
+        }
     }
 
 })();

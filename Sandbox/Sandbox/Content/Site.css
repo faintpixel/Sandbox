@@ -19,3 +19,7 @@
     width: 800px;
     height: 400px;
 }
+
+.ui-grid-row:hover div {
+    background-color: aqua !important;
+}
