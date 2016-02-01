@@ -1,0 +1,53 @@
+﻿<div ng-app='myApp'>
+    <div ng-controller='TimeEntryController as TimeEntry' ng-init='TimeEntry.Initialize("@ViewBag.EmployeeName", "@ViewBag.EmployeeNumber", @Html.Raw(Json.Encode(ViewBag.Projects)))'> 
+        <div id="TopButtons">
+            <button type="button" class="btn btn-default" ng-disabled="!timeEntryForm.$valid" ng-click="TimeEntry.SubmitTime()">Submit Timesheet</button>
+        </div>
+        <div id="TimeEntry">
+            <div id="TimeEntryOverview">
+                <div>{{TimeEntry.employeeName}} - # {{TimeEntry.employeeNumber}}</div>
+                <div>Entry for: {{TimeEntry.selectedDate | date: 'd-MMM-yyyy'}}</div>
+            </div>
+            <div>
+                <form name="timeEntryForm" novalidate>
+                    <div class="row">
+                        <div class="col-md-2">Entry Type:</div>
+                        <div class="col-md-10">() Work () Admin () Unit Pricing</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Project:</div>
+                        <div class="col-md-5"><select ng-model="TimeEntry.timeSheet.project" ng-change="TimeEntry.LoadPhases(TimeEntry.timeSheet.project)" ng-options="project.Key as project.Value for project in TimeEntry.projectList" class="form-control"></select></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Phase:</div>
+                        <div class="col-md-5"><select ng-model="TimeEntry.timeSheet.phase" ng-change="TimeEntry.LoadSubPhases(TimeEntry.timeSheet.project, TimeEntry.timeSheet.phase)" ng-options="phase.Key as phase.Value for phase in TimeEntry.phaseList" class="form-control"></select></div>
+                        <div class="col-md-2" ng-show="TimeEntry.loadingPhases">Loading...</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">SubPhase:</div>
+                        <div class="col-md-5"><select ng-model="TimeEntry.timeSheet.subPhase" ng-options="subPhase.Key as subPhase.Value for subPhase in TimeEntry.subPhaseList" class="form-control"></select></div>
+                        <div class="col-md-2" ng-show="TimeEntry.loadingSubPhases">Loading...</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Comment:</div>
+                        <div class="col-md-5"><input name="comment" type="text" ng-model="TimeEntry.timeSheet.comment" ng-required="true" class="form-control" /></div>
+                    </div>
+                    <div ng-if="timeEntryForm.comment.$dirty" ng-show="timeEntryForm.comment.$error.required" class="validationError">Comment is required</div>
+
+                    <div class="row">
+                        <div class="col-md-2">Hours:</div>
+                        <div class="col-md-5"><input type="text" ng-model="TimeEntry.timeSheet.hours" ng-required="true" class="form-control"></input></div>
+                    </div>
+                </form>
+                {{TimeEntry.timeSheet}}
+            </div>
+        </div>
+    </div>
+
+    <div ng-controller="TimeCalendarController as Calendar" ng-init="Calendar.Initialize()">
+        <uib-datepicker id="EmployeeCalendar" ng-model="Calendar.selectedDate"
+                        show-weeks="false" 
+                        custom-class="Calendar.GetDayClass(date, mode)">
+        </uib-datepicker>
+    </div>
+</div>

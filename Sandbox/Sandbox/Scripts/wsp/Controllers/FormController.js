@@ -9,7 +9,8 @@
         vm.dateFormat = 'd-MMM-yyyy';
         vm.dateOptions = {
             'format-day': 'd',
-            'starting-day': 0
+            'starting-day': 0,
+            'show-weeks': false
         };
         vm.employee = {
             'employee': '',

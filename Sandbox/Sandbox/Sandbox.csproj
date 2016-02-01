@@ -199,6 +199,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\TimeSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -233,7 +234,14 @@
     <Content Include="Scripts\wsp\Controllers\AboutController.js" />
     <Content Include="Scripts\wsp\Controllers\EmployeeOverviewController.js" />
     <Content Include="Scripts\wsp\Controllers\FormController.js" />
+    <Content Include="Scripts\wsp\Controllers\TimeCalendarController.js" />
+    <Content Include="Scripts\wsp\Controllers\TimeEntryController.js" />
+    <Content Include="Scripts\wsp\Decorators\datepicker.monthChanged.js" />
+    <Content Include="Scripts\wsp\Decorators\datepicker.refreshDatepickers.js" />
     <Content Include="Scripts\wsp\Services\EmployeeService.js" />
+    <Content Include="Scripts\wsp\Services\ProjectService.js" />
+    <Content Include="Scripts\wsp\Services\TimeService.js" />
+    <Content Include="Scripts\wsp\Services\UtilityService.js" />
     <Content Include="Scripts\wsp\Tests\EmployeeServiceSpec.js" />
     <Content Include="Scripts\wsp\Tests\FormControllerSpec.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -255,6 +263,7 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\Home\_About.cshtml" />
     <Content Include="Views\Home\_EmployeeOverview.cshtml" />
+    <Content Include="Views\Home\TimeEntry.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

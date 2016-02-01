@@ -20,12 +20,23 @@
         @RenderBody()
     </div>
 
+    @Scripts.Render("~/scripts/wsp/Decorators/datepicker.refreshDatepickers.js")
+    @Scripts.Render("~/scripts/wsp/Decorators/datepicker.monthChanged.js")
+
     @Scripts.Render("~/scripts/wsp/Application.js")
     @Scripts.Render("~/scripts/wsp/Constants.js")
+
+    @Scripts.Render("~/scripts/wsp/Services/UtilityService.js")
     @Scripts.Render("~/scripts/wsp/Services/EmployeeService.js")
+    @Scripts.Render("~/scripts/wsp/Services/ProjectService.js")
+    @Scripts.Render("~/scripts/wsp/Services/TimeService.js")
     @Scripts.Render("~/scripts/wsp/Controllers/FormController.js")
     @Scripts.Render("~/scripts/wsp/Controllers/AboutController.js")
     @Scripts.Render("~/scripts/wsp/Controllers/EmployeeOverviewController.js")
+    @Scripts.Render("~/scripts/wsp/Controllers/TimeEntryController.js")
+    @Scripts.Render("~/scripts/wsp/Controllers/TimeCalendarController.js")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

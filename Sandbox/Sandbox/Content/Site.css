@@ -23,3 +23,16 @@
 .ui-grid-row:hover div {
     background-color: aqua !important;
 }
+
+.ng-invalid.ng-dirty {
+    border-color: red;
+}
+
+.submitted button {
+    background-color: bisque;
+    background-image: none;
+}
+
+.submitted button.active {
+    background-color: burlywood !important;
+}
